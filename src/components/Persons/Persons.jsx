@@ -2,7 +2,7 @@ import React from 'react';
 import './Persons.css';
 import Person from './Person';
 
-export default function Persons() {
+export default function Persons(props) {
     const personsData = [
         {
             "name": "Alaina Sarfaraz",
@@ -24,13 +24,18 @@ export default function Persons() {
             "isEditMode": false
 
         }
-    ]
+    ];
+    const enableEdit = () => {
+        alert('hello duniya');
+    }
     return (
         <div className="Persons">
 
             <h1>Persons </h1>
             {
-                personsData.map(person => <Person person={person} />)
+                personsData.map(person => <Person
+                    person={person}
+                    editButtonMode={enableEdit} />)
             }
         </div>
     )

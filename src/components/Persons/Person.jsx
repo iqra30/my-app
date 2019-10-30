@@ -6,16 +6,19 @@ import PropType from 'prop-types';
 import { Card } from 'react-bootstrap';
 
 export default function Person(props) {
-
+    
     return (
         <div >
             <Card className="Person" style={{ width: '18rem' }}>
-                {props.person.isEditMode ? <PersonEdit person={props.person} /> : <PersonInfo person={props.person} />}
+                {props.person.isEditMode ? 
+                <PersonEdit person={props.person} /> : 
+                <PersonInfo person={props.person} editedClick={props.editButtonMode} />}
             </Card>
         </div>
     )
 }
 
 Person.PropType = {
-    person: PropType.object
+    person: PropType.object,
+    editButtonMode: PropType.func
 }
