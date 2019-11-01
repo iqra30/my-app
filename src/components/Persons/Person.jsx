@@ -11,8 +11,8 @@ export default function Person(props) {
         <div >
             <Card className="Person" style={{ width: '18rem' }}>
                 {props.person.isEditMode ? 
-                <PersonEdit person={props.person} /> : 
-                <PersonInfo person={props.person} editedClick={props.editButtonMode} />}
+                <PersonEdit person={props.person} disableEditMode={props.disableEditMode}/> : 
+                <PersonInfo person={props.person} editedClick={props.editButtonMode} deletePerson={props.deletePerson} />}
             </Card>
         </div>
     )
@@ -20,5 +20,7 @@ export default function Person(props) {
 
 Person.PropType = {
     person: PropType.object,
-    editButtonMode: PropType.func
+    editButtonMode: PropType.func,
+    disableEditMode: PropType.func,
+    deletePerson: PropType.func
 }

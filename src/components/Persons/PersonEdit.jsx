@@ -19,7 +19,7 @@ export default function PersonEdit(props) {
                 <Button variant="light">
                     <FontAwesomeIcon className="text-info" icon={faCheck} />
                 </Button>
-                <Button variant="light">
+                <Button variant="light" onClick={props.disableEditMode}>
                     <FontAwesomeIcon className="text-danger" icon={faTimes} />
                 </Button>
             </Card.Body>
@@ -28,5 +28,6 @@ export default function PersonEdit(props) {
 }
 
 PersonEdit.PropType = {
-    human: PropType.object
+    person: PropType.object,
+    disableEditMode: PropType.func
 }

@@ -18,7 +18,7 @@ export default function PersonInfo(props) {
                 <Button variant="light" onClick={props.editedClick}>
                     <FontAwesomeIcon className="text-info" icon={faEdit} />
                 </Button>
-                <Button variant="light">
+                <Button variant="light" onClick={props.deletePerson}>
                     <FontAwesomeIcon className="text-danger" icon={faTrash} />
                 </Button>
             </Card.Body>
@@ -28,5 +28,6 @@ export default function PersonInfo(props) {
 
 PersonInfo.PropType = {
     person: PropType.object,
-    editedClick: PropType.func
+    editedClick: PropType.func,
+    deletePerson: PropType.func
 }

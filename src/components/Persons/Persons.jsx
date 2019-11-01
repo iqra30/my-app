@@ -31,19 +31,26 @@ class Persons extends Component {
             ]
         }
     }
-    enableEdit = (p) => {
+    deletePerson = (personClicked) => {
+       this.setState({
+           personsData: this.state.personsData.filter(
+               person => person.name !== personClicked.name
+           )
+       })
+    }
+    toggleEditMode = (personClicked , newValue) => {
         this.setState({
             personsData: this.state.personsData.map(
                 pInner => {
-                    if(pInner.name === p.name){
-                        pInner.isEditMode =true;
+                    if(pInner.name === personClicked.name){
+                        pInner.isEditMode = newValue;
                     }
                     return pInner;
                 }
             )
         })
-        p.isEditMode = true;
     }
+    
     render() {
         return (
             <div className="Persons">
@@ -52,8 +59,12 @@ class Persons extends Component {
                 {
                     this.state.personsData.map(person => <Person
                         person={person}
+                        deletePerson={
+                            () => this.deletePerson(person)}
                         editButtonMode={
-                            () => this.enableEdit(person)} />)
+                            () => this.toggleEditMode(person , true)} disableEditMode={
+                                () => this.toggleEditMode(person, false)
+                            }/>)
                 }
             </div>
         )
