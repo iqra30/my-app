@@ -1,6 +1,6 @@
 import React from 'react';
 import './PersonInfo.css';
-import { Button, Card, ButtonGroup } from 'react-bootstrap';
+import { Button, Card, ButtonGroup } from  'react-bootstrap';
 import PropType from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
